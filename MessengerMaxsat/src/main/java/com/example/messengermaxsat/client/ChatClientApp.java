@@ -19,6 +19,11 @@ public class ChatClientApp extends Application {
 
     @Override
     public void start(Stage stage) {
+        TextInputDialog dialog = new TextInputDialog("User");
+        dialog.setTitle("Вход в Maxsat");
+        dialog.setHeaderText("Выберите ваш никнейм");
+        dialog.setContentText("Введите имя:");
+        dialog.showAndWait().ifPresent(name -> this.userName = name);
         chatArea.setEditable(false);
         VBox root = new VBox(new Label("Вы вошли как: " + userName), chatArea, inputField);
 
